@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_DATABASE=lara-graphql
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - 3306:3306
+    #volumes:
+    #  - ./docker/db/scripts:/docker-entrypoint-initdb.d
