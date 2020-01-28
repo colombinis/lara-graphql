@@ -4,24 +4,15 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 "A date string with format `Y-m-d`, e.g. `2011-05-23`."
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
-
 type Query {
-    posts: [Post!]! @all
-    post(id: Int! @eq): Post @find
-}
-
-type Post{
-    id: ID!
-    title: String!
-    content: String!
-    author: User! @belongsTo
+    users: [User!]! @paginate(defaultCount: 10)
+    user(id: ID @eq): User @find
 }
 
 type User {
     id: ID!
     name: String!
     email: String!
-    created_at: DateTime
-    updated_at: DateTime
-    posts: [Post] @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
 }
