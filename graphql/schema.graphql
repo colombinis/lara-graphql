@@ -15,6 +15,7 @@ type Post{
     title: String!
     content: String!
     author: User! @belongsTo
+    comments: [Comment] @hasMany
 }
 
 type User {
@@ -24,4 +25,10 @@ type User {
     created_at: DateTime
     updated_at: DateTime
     posts: [Post] @hasMany
+}
+
+type Comment {
+    id: ID!
+    reply: String
+    post: Post @belongsTo
 }
