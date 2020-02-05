@@ -38,14 +38,12 @@ type User {
     created_at: DateTime
     updated_at: DateTime
     posts: [Post] @hasMany
-<<<<<<< HEAD
     status: EmploymentStatus
-=======
+
 }
 
 type Comment {
     id: ID!
     reply: String
     post: Post @belongsTo
->>>>>>> cd8bc1cc5118769af81ed2e4c067df034dea9fd3
 }
