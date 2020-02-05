@@ -12,8 +12,15 @@ enum EmploymentStatus {
 }
 
 type Query {
-    posts: [Post!]! @all
+    hello(name:String!): String
+    posts: [Post!]! @paginate
     post(id: Int! @eq): Post @find
+}
+
+type Mutation {
+  createAuthor(name: String!, email: String!, password: String!): User! @create
+  updateAuthor(id: ID!, name: String): User @update
+  deleteUser(id: ID!): User @delete
 }
 
 type Post{
@@ -21,6 +28,7 @@ type Post{
     title: String!
     content: String!
     author: User! @belongsTo
+    comments: [Comment] @hasMany
 }
 
 type User {
@@ -30,5 +38,14 @@ type User {
     created_at: DateTime
     updated_at: DateTime
     posts: [Post] @hasMany
+<<<<<<< HEAD
     status: EmploymentStatus
+=======
+}
+
+type Comment {
+    id: ID!
+    reply: String
+    post: Post @belongsTo
+>>>>>>> cd8bc1cc5118769af81ed2e4c067df034dea9fd3
 }
