@@ -4,6 +4,12 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 "A date string with format `Y-m-d`, e.g. `2011-05-23`."
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
+enum EmploymentStatus {
+  INTERN @enum(value: 1)
+  EMPLOYEE @enum(value: 2)
+  TERMINATED @enum(value: 3)
+  FREELANCE @enum(value: 4)
+}
 
 type Query {
     posts: [Post!]! @all
@@ -24,4 +30,5 @@ type User {
     created_at: DateTime
     updated_at: DateTime
     posts: [Post] @hasMany
+    status: EmploymentStatus
 }

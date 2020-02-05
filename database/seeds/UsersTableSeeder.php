@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
                 'name' => Str::random(10),
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('password'),
+                'status' => rand(1,4),
             ]);
         }
         
